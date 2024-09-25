@@ -1,6 +1,6 @@
-
-
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+
 
 import {
   StyleSheet,
@@ -12,7 +12,7 @@ function App()
 {
 
   
-  return(<View></View>)
+  return(<NavigationContainer><View></View></NavigationContainer>)
 }
 
 
