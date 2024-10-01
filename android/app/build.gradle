@@ -50,8 +50,13 @@ react {
     //   The list of flags to pass to the Hermes compiler. By default is "-O", "-output-source-map"
     // hermesFlags = ["-O", "-output-source-map"]
 
+// Enable Hermes
+    hermesEnabled = project.ext.hermesEnabled  // Add this line to use the Hermes setting from the root build.gradle file
+
     /* Autolinking */
     autolinkLibrariesWithApp()
+
+
 }
 
 /**
@@ -71,6 +76,11 @@ def enableProguardInReleaseBuilds = false
  * this variant is about 6MiB larger per architecture than default.
  */
 def jscFlavor = 'org.webkit:android-jsc:+'
+
+
+
+
+
 
 android {
     ndkVersion rootProject.ext.ndkVersion
