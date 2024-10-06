@@ -7,6 +7,8 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
+  FlatList,
+  Image,
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -19,7 +21,21 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  function HomeScreen() {
+  function DrawerFirstScreen() {
+    const DATA = [
+      {
+        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        title: 'First Item',
+      },
+      {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        title: 'Second Item',
+      },
+      {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        title: 'Third Item',
+      },
+    ];
     return (
       <ScrollView
         style={{
@@ -191,6 +207,18 @@ export default function App() {
             borderWidth: 3,
             marginTop: 10,
           }}></View>
+        <View>
+          <FlatList
+            data={DATA}
+            renderItem={({item}) => (
+              <Image
+                style={{marginRight: 5}}
+                source={require('./Assets/image-272x78.jpg')}></Image>
+            )}
+            horizontal={true}
+            keyExtractor={item => item.id}
+          />
+        </View>
         <View
           style={{
             borderColor: 'lightgray',
@@ -206,10 +234,47 @@ export default function App() {
       </ScrollView>
     );
   }
-  //  <Tab.Navigator>
-  //    <Tab.Screen name="Home" component={HomeScreen} />
-  //    <Tab.Screen name="Settings" component={SettingsScreen} />
-  //  </Tab.Navigator>;
+  function DrawerSecondScreen() {
+    return (
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}></View>
+    );
+  }
+  function HomeScreen() {
+    return (
+      <Drawer.Navigator
+        screenOptions={{
+          drawerStyle: {
+            backgroundColor: isEnabled ? 'orange' : 'white',
+          },
+        }}
+        initialRouteName="DrawerFirst">
+        <Drawer.Screen
+          name="DrawerFirst"
+          component={DrawerFirstScreen}
+          options={{
+            headerTintColor: isEnabled ? 'white' : 'black',
+            headerStyle: {
+              backgroundColor: isEnabled ? 'black' : 'white',
+            },
+            headerRight: () => (
+              <Switch
+                trackColor={{false: '#767577', true: '#81b0ff'}}
+                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                onValueChange={toggleSwitch}
+                value={isEnabled}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen name="About" component={DrawerSecondScreen} />
+      </Drawer.Navigator>
+    );
+  }
   function AboutScreen() {
     return (
       <View
@@ -232,36 +297,13 @@ export default function App() {
   }
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
   return (
     <NavigationContainer>
-      <Drawer.Navigator
-        screenOptions={{
-          drawerStyle: {
-            backgroundColor: isEnabled ? 'orange' : 'white',
-          },
-        }}
-        initialRouteName="Home">
-        <Drawer.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            headerTintColor: isEnabled ? 'white' : 'black',
-            headerStyle: {
-              backgroundColor: isEnabled ? 'black' : 'white',
-            },
-            headerRight: () => (
-              <Switch
-                trackColor={{false: '#767577', true: '#81b0ff'}}
-                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-              />
-            ),
-          }}
-        />
-        <Drawer.Screen name="About" component={AboutScreen} />
-        <Drawer.Screen name="Setting" component={SettingScreen} />
-      </Drawer.Navigator>
+      <Tab.Navigator screenOptions={{headerShown: false}}>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="About" component={AboutScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
