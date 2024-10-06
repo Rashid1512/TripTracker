@@ -14,6 +14,9 @@ const Drawer = createDrawerNavigator();
 import Geolocation from '@react-native-community/geolocation';
 //import { ScrollView } from 'react-native-gesture-handler';
 // Geolocation.setRNConfiguration(config);
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   function HomeScreen() {
@@ -203,6 +206,10 @@ export default function App() {
       </ScrollView>
     );
   }
+  //  <Tab.Navigator>
+  //    <Tab.Screen name="Home" component={HomeScreen} />
+  //    <Tab.Screen name="Settings" component={SettingsScreen} />
+  //  </Tab.Navigator>;
   function AboutScreen() {
     return (
       <View
