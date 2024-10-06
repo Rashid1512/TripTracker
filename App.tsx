@@ -182,6 +182,24 @@ export default function App() {
             <Text>More</Text>
           </View>
         </View>
+        <View
+          style={{
+            borderColor: 'lightgray',
+            borderWidth: 3,
+            marginTop: 10,
+          }}></View>
+        <View
+          style={{
+            borderColor: 'lightgray',
+            borderWidth: 3,
+            marginTop: 150,
+          }}></View>
+        <View style={{marginTop: 10, marginLeft: 10, flexDirection: 'row'}}>
+          <Text style={{fontWeight: 'bold'}}>SPECIAL OFFERS RS.1/-</Text>
+          <TouchableOpacity>
+            <Text style={{color: 'red', marginLeft: 180}}>View more</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     );
   }
