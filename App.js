@@ -17,6 +17,8 @@ const Drawer = createDrawerNavigator();
 // Geolocation.setRNConfiguration(config);
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
+import { createStackNavigator } from '@react-navigation/stack';
+const Stack = createStackNavigator();
 
 export default function App() {
   function DrawerFirstScreen() {
