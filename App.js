@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Button,
   View,
@@ -7,17 +7,15 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  FlatList,
   Image,
 } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 const Drawer = createDrawerNavigator();
-import Geolocation from '@react-native-community/geolocation';
+//import Geolocation from '@react-native-community/geolocation';
 //import { ScrollView } from 'react-native-gesture-handler';
 // Geolocation.setRNConfiguration(config);
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -59,7 +57,7 @@ export default function App() {
             }}>
             Your balance is
           </Text>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{ flexDirection: 'row' }}>
             <Text
               style={{
                 color: 'white',
@@ -69,7 +67,7 @@ export default function App() {
               }}>
               Rs
             </Text>
-            <Text style={{color: 'white', fontSize: 35, marginLeft: 10}}>
+            <Text style={{ color: 'white', fontSize: 35, marginLeft: 10 }}>
               0
             </Text>
           </View>
@@ -96,17 +94,17 @@ export default function App() {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={{width: '98%', alignItems: 'flex-end', marginTop: 30}}>
+        <View style={{ width: '98%', alignItems: 'flex-end', marginTop: 30 }}>
           <TouchableOpacity>
-            <Text style={{color: 'red'}}>View more</Text>
+            <Text style={{ color: 'red' }}>View more</Text>
           </TouchableOpacity>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
           <View
             style={{
               alignItems: 'center',
             }}>
-            <Text style={{fontWeight: 'bold'}}>DATA</Text>
+            <Text style={{ fontWeight: 'bold' }}>DATA</Text>
             <View
               style={{
                 height: 100,
@@ -115,14 +113,14 @@ export default function App() {
                 borderWidth: 3,
                 borderRadius: 50,
               }}></View>
-            <Text style={{fontWeight: 'bold'}}>Per MB</Text>
+            <Text style={{ fontWeight: 'bold' }}>Per MB</Text>
           </View>
 
           <View
             style={{
               alignItems: 'center',
             }}>
-            <Text style={{fontWeight: 'bold'}}>CALLS</Text>
+            <Text style={{ fontWeight: 'bold' }}>CALLS</Text>
             <View
               style={{
                 height: 100,
@@ -131,7 +129,7 @@ export default function App() {
                 borderWidth: 3,
                 borderRadius: 50,
               }}></View>
-            <Text style={{fontWeight: 'bold'}}>Per 60 s</Text>
+            <Text style={{ fontWeight: 'bold' }}>Per 60 s</Text>
           </View>
 
           <View
@@ -140,7 +138,7 @@ export default function App() {
               // borderWidth: 1,
               alignItems: 'center',
             }}>
-            <Text style={{fontWeight: 'bold'}}>SMS</Text>
+            <Text style={{ fontWeight: 'bold' }}>SMS</Text>
             <View
               style={{
                 height: 100,
@@ -149,7 +147,7 @@ export default function App() {
                 borderWidth: 3,
                 borderRadius: 50,
               }}></View>
-            <Text style={{fontWeight: 'bold'}}>Per</Text>
+            <Text style={{ fontWeight: 'bold' }}>Per</Text>
           </View>
         </View>
         <View
@@ -165,7 +163,7 @@ export default function App() {
             justifyContent: 'space-evenly',
             marginTop: 30,
           }}>
-          <View style={{marginTop: 50}}>
+          <View style={{ marginTop: 50 }}>
             <Text>Packages</Text>
           </View>
 
@@ -175,7 +173,7 @@ export default function App() {
               borderWidth: 1,
               height: 80,
             }}></View>
-          <View style={{marginTop: 50}}>
+          <View style={{ marginTop: 50 }}>
             <Text>Daily Rewards</Text>
           </View>
 
@@ -186,7 +184,7 @@ export default function App() {
               height: 80,
             }}></View>
 
-          <View style={{marginTop: 50}}>
+          <View style={{ marginTop: 50 }}>
             <Text>Make Your Bundle</Text>
           </View>
 
@@ -197,7 +195,7 @@ export default function App() {
               height: 80,
             }}></View>
 
-          <View style={{marginTop: 50}}>
+          <View style={{ marginTop: 50 }}>
             <Text>More</Text>
           </View>
         </View>
@@ -207,28 +205,18 @@ export default function App() {
             borderWidth: 3,
             marginTop: 10,
           }}></View>
-        <View>
-          <FlatList
-            data={DATA}
-            renderItem={({item}) => (
-              <Image
-                style={{marginRight: 5}}
-                source={require('./Assets/image-272x78.jpg')}></Image>
-            )}
-            horizontal={true}
-            keyExtractor={item => item.id}
-          />
-        </View>
+
+
         <View
           style={{
             borderColor: 'lightgray',
             borderWidth: 3,
             marginTop: 150,
           }}></View>
-        <View style={{marginTop: 10, marginLeft: 10, flexDirection: 'row'}}>
-          <Text style={{fontWeight: 'bold'}}>SPECIAL OFFERS RS.1/-</Text>
+        <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
+          <Text style={{ fontWeight: 'bold' }}>SPECIAL OFFERS RS.1/-</Text>
           <TouchableOpacity>
-            <Text style={{color: 'red', marginLeft: 180}}>View more</Text>
+            <Text style={{ color: 'red', marginLeft: 180 }}>View more</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -263,7 +251,7 @@ export default function App() {
             },
             headerRight: () => (
               <Switch
-                trackColor={{false: '#767577', true: '#81b0ff'}}
+                trackColor={{ false: '#767577', true: '#81b0ff' }}
                 thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
                 onValueChange={toggleSwitch}
                 value={isEnabled}
@@ -300,7 +288,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{headerShown: false}}>
+      <Tab.Navigator screenOptions={{ headerShown: false }}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="About" component={AboutScreen} />
       </Tab.Navigator>
