@@ -21,21 +21,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 export default function App() {
-  function DrawerFirstScreen() {
-    const DATA = [
-      {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
-      },
-      {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
-      },
-      {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
-      },
-    ];
+  function DrawerFirstScreen({ navigation }) {
     return (
       <ScrollView
         style={{
@@ -83,7 +69,7 @@ export default function App() {
               top: 20,
               borderRadius: 2,
             }}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => { navigation.navigate('Stack2') }}>
               <Text
                 style={{
                   color: 'white',
@@ -234,7 +220,7 @@ export default function App() {
         }}></View>
     );
   }
-  function HomeScreen() {
+  function Stack1Screen() {
     return (
       <Drawer.Navigator
         screenOptions={{
@@ -264,6 +250,52 @@ export default function App() {
         <Drawer.Screen name="About" component={DrawerSecondScreen} />
       </Drawer.Navigator>
     );
+  }
+  function Stack2Screen() {
+    return (<View>
+      <View style={{ marginTop: 10, backgroundColor: 'white', width: '100%', height: 100, justifyContent: 'space-between', paddingLeft: 40, flexDirection: 'row', paddingRight: 40, alignItems: 'center' }}>
+        <View>
+          <Text style={{ color: 'gray', fontSize: 15 }}>Pay with</Text>
+          <Text style={{ fontWeight: 'bold', fontSize: 20, color: 'black' }}>JazzCash</Text>
+        </View>
+        <View>
+          <Text style={{ fontSize: 30 }}>
+            {'>'}
+          </Text>
+        </View>
+      </View>
+      <View style={{ marginTop: 10, backgroundColor: 'white', width: '100%', height: 100, justifyContent: 'space-between', paddingLeft: 40, flexDirection: 'row', paddingRight: 40, alignItems: 'center' }}>
+        <View>
+          <Text style={{ color: 'gray', fontSize: 15 }}>Pay with</Text>
+          <Text style={{ fontWeight: 'bold', fontSize: 20, color: 'black' }}>Credit/Debit Card</Text>
+        </View>
+        <View>
+          <Text style={{ fontSize: 30 }}>
+            {'>'}
+          </Text>
+        </View>
+      </View>
+      <View style={{ marginTop: 10, backgroundColor: 'white', width: '100%', height: 100, justifyContent: 'space-between', paddingLeft: 40, flexDirection: 'row', paddingRight: 40, alignItems: 'center' }}>
+        <View>
+          <Text style={{ color: 'gray', fontSize: 15 }}>Pay with</Text>
+          <Text style={{ fontWeight: 'bold', fontSize: 20, color: 'black' }}>Scratch Card</Text>
+        </View>
+        <View>
+          <Text style={{ fontSize: 30 }}>
+            {'>'}
+          </Text>
+        </View>
+      </View>
+
+    </View>)
+  }
+  function HomeScreen() {
+
+
+    return (<Stack.Navigator>
+      <Stack.Screen name="Stack1" component={Stack1Screen} />
+      <Stack.Screen name="Stack2" component={Stack2Screen} />
+    </Stack.Navigator>)
   }
   function AboutScreen() {
     return (
