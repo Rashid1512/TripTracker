@@ -69,7 +69,7 @@ export default function App() {
               top: 20,
               borderRadius: 2,
             }}>
-            <TouchableOpacity onPress={() => { navigation.navigate('Stack2') }}>
+            <TouchableOpacity onPress={() => { navigation.navigate('Recharge') }}>
               <Text
                 style={{
                   color: 'white',
@@ -83,7 +83,7 @@ export default function App() {
           </View>
         </View>
         <View style={{ width: '98%', alignItems: 'flex-end', marginTop: 30 }}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => { navigation.navigate('Stack3') }}>
             <Text style={{ color: 'red' }}>View more</Text>
           </TouchableOpacity>
         </View>
@@ -289,12 +289,50 @@ export default function App() {
 
     </View>)
   }
+
+  function Stack3Screen() {
+    return (<View>
+      <View>
+        <Text style={{ textAlign: 'center', color: 'gray', marginTop: 20, fontWeight: 'bold', fontSize: 20 }}>
+          Subscribed Packages
+        </Text>
+        <Text style={{ marginTop: 40, fontWeight: 'bold', color: 'black', marginLeft: 10, fontSize: 15 }}>
+          More Services
+        </Text>
+      </View>
+      <View style={{ marginTop: 10, backgroundColor: 'white', width: '100%', height: 100, justifyContent: 'space-between', paddingLeft: 40, flexDirection: 'row', paddingRight: 40, alignItems: 'center' }}>
+        <View>
+          <Text style={{ fontWeight: 'bold', fontSize: 20, color: 'black' }}>International Roaming</Text>
+        </View>
+        <View>
+          <Text style={{ fontSize: 20, color: 'red' }}>
+            Rs 0.00
+          </Text>
+        </View>
+      </View>
+      <View style={{ marginTop: 30, backgroundColor: 'white', width: '100%', height: 100, justifyContent: 'space-between', paddingLeft: 40, flexDirection: 'row', paddingRight: 40, alignItems: 'center' }}>
+        <View>
+          <Text style={{ fontWeight: 'bold', fontSize: 20, color: 'black' }}>International Roaming</Text>
+        </View>
+        <View>
+          <Text style={{ fontSize: 20, color: 'red' }}>
+            Rs 0.00
+          </Text>
+        </View>
+      </View>
+
+
+    </View>)
+
+  }
   function HomeScreen() {
 
 
     return (<Stack.Navigator>
       <Stack.Screen name="Stack1" component={Stack1Screen} />
-      <Stack.Screen name="Stack2" component={Stack2Screen} />
+      <Stack.Screen name="Recharge" component={Stack2Screen} />
+      <Stack.Screen name="Stack3" component={Stack3Screen} />
+
     </Stack.Navigator>)
   }
   function AboutScreen() {
